@@ -34,48 +34,48 @@ This driver replacement has been created to make it easy to replace the current 
 
 ### Examples
 
-  Route::get('login/once', function() {
-     if(Auth::once(['email'=>'test@gmail.com', 'password'=>'test'])) {
-      return Redirect::to('check');
-    } else {
-      return Redirect::to('error');
-    }
-  });
+    Route::get('login/once', function() {
+       if(Auth::once(['email'=>'test@gmail.com', 'password'=>'test'])) {
+        return Redirect::to('check');
+      } else {
+        return Redirect::to('error');
+      }
+    });
 
-  Route::get('login/remember', function() {
-   
-     if(Auth::attempt(['email'=>'test@gmail.com', 'password'=>'test'], true)) {
-      return Redirect::to('check');
-    } else {
-      return Redirect::to('error');
-    }
-  });
+    Route::get('login/remember', function() {
+     
+       if(Auth::attempt(['email'=>'test@gmail.com', 'password'=>'test'], true)) {
+        return Redirect::to('check');
+      } else {
+        return Redirect::to('error');
+      }
+    });
 
-  Route::get('login/{id}', function($id) {
-    Auth::loginUsingId($id);
-  });
+    Route::get('login/{id}', function($id) {
+      Auth::loginUsingId($id);
+    });
 
-  Route::get('login', function() {
-    if(Auth::attempt(['email'=>'test@gmail.com', 'password'=>'test'])) {
-      return Redirect::to('check');
-    } else {
-      return Redirect::to('error');
-    }
-  });
+    Route::get('login', function() {
+      if(Auth::attempt(['email'=>'test@gmail.com', 'password'=>'test'])) {
+        return Redirect::to('check');
+      } else {
+        return Redirect::to('error');
+      }
+    });
 
-  Route::get('logout', function() {
-    var_dump(Auth::logout());
-  });
+    Route::get('logout', function() {
+      var_dump(Auth::logout());
+    });
 
-  Route::get('check', function() {
+    Route::get('check', function() {
 
-    if(Auth::check()) {
-      print Auth::user()->email . '<br/>';
-    }
+      if(Auth::check()) {
+        print Auth::user()->email . '<br/>';
+      }
 
-    var_dump(Auth::check());
-  });
+      var_dump(Auth::check());
+    });
 
-  Route::get('error', function() {
-    print_r(Session::get('SentryException'));
-  });
+    Route::get('error', function() {
+      print_r(Session::get('SentryException'));
+    });
