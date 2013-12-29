@@ -15,7 +15,7 @@ class SentryUserProvider implements UserProviderInterface {
       }
       catch (\Cartalyst\Sentry\Users\UserNotFoundException $e)
       {
-         \Session::flash('SentryException', 'User was not found.');
+         \Session::flash('AuthException', 'User was not found.');
          return new GenericUser(['email'=>null,'password'=>null,'id'=>null]);
       }
       
@@ -31,7 +31,7 @@ class SentryUserProvider implements UserProviderInterface {
       }
       catch (\Cartalyst\Sentry\Users\UserNotFoundException $e)
       {
-        \Session::flash('SentryException', 'User was not found.');
+        \Session::flash('AuthException', 'User was not found.');
         return false;
       }
 
@@ -49,39 +49,39 @@ class SentryUserProvider implements UserProviderInterface {
       }
       catch (\Cartalyst\Sentry\Users\LoginRequiredException $e)
       {
-        \Session::flash('SentryException', 'Login field is required.');
+        \Session::flash('AuthException', 'Login field is required.');
         return false;
       }
       catch (\Cartalyst\Sentry\Users\PasswordRequiredException $e)
       {
-        \Session::flash('SentryException', 'Password field is required.');
+        \Session::flash('AuthException', 'Password field is required.');
           return false;
       }
       catch (\Cartalyst\Sentry\Users\WrongPasswordException $e)
       {
-        \Session::flash('SentryException', 'Wrong password, try again.');
+        \Session::flash('AuthException', 'Wrong password, try again.');
           return false;
       }
       catch (\Cartalyst\Sentry\Users\UserNotFoundException $e)
       {
-        \Session::flash('SentryException', 'User was not found.');
+        \Session::flash('AuthException', 'User was not found.');
           return false;
       }
       catch (\Cartalyst\Sentry\Users\UserNotActivatedException $e)
       {
-        \Session::flash('SentryException', 'User is not activated.');
+        \Session::flash('AuthException', 'User is not activated.');
           return false;
       }
 
       // The following is only required if throttle is enabled
       catch (\Cartalyst\Sentry\Throttling\UserSuspendedException $e)
       {
-        \Session::flash('SentryException', 'User is suspended.');
+        \Session::flash('AuthException', 'User is suspended.');
           return false;
       }
       catch (\Cartalyst\Sentry\Throttling\UserBannedException $e)
       {
-        \Session::flash('SentryException', 'User is banned.');
+        \Session::flash('AuthException', 'User is banned.');
           return false;
       }
 
