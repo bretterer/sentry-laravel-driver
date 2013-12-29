@@ -1,6 +1,7 @@
 {
     "name": "lamarus/sentry-driver",
-    "description": "",
+    "description": "An auth driver for Laravel 4 and Sentry 2",
+    "license": "MIT",
     "authors": [
         {
             "name": "Brian Retterer",
