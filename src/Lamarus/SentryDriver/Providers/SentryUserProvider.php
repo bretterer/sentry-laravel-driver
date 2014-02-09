@@ -32,7 +32,7 @@ class SentryUserProvider implements UserProviderInterface {
       catch (\Cartalyst\Sentry\Users\UserNotFoundException $e)
       {
         \Session::flash('AuthException', 'User was not found.');
-        return false;
+        return new GenericUser(['email'=>null,'password'=>null,'id'=>null]);
       }
 
       if ( ! is_null($user))
